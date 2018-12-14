@@ -8,7 +8,12 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', require('ejs').__express);
+
+// Connection to DB and Models Definitions
+require('./lib/connectMongoose');
+require('./models/Add');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -16,8 +21,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 /**
- * Routes for webApp
+ * API Routes
+ */
+app.use('/apiv1/adds', require('./routes/apiv1/adds.js'));
+
+/**
+ * web Routes
  */
 app.use('/',      require('./routes/index'));
 app.use('/users', require('./routes/users'));
