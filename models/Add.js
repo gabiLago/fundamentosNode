@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 
-//Define Schema
 const addSchema = mongoose.Schema({
     name: String,
     sale: Boolean,
@@ -11,8 +10,6 @@ const addSchema = mongoose.Schema({
     tags: [String]
 });
 
-//Create the model
 const Add = mongoose.model('Add', addSchema);
 
-//Export the model
 module.exports = Add;
