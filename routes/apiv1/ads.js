@@ -4,9 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 const Ad = require('../../models/Ad');
-const basicAuthMiddleware = require('../../lib/basicAuthMiddleware');
+const jwtAuthMiddleware = require('../../lib/jwtAuthMiddleware');
 
-router.use( basicAuthMiddleware(process.env.BASIC_AUTH_NAME, process.env.BASIC_AUTH_PASS) );
+router.use( jwtAuthMiddleware());
+
 
 /**
  * GET /ads
@@ -29,7 +30,7 @@ router.get('/', async (req, res, next) => {
     if (tag) filter.tags = tag;
     if (sale) filter.sale = sale;
     if (price) {
-        // Price range comes in the http request in a string with one or two values separated by a dash.
+        // Price range comes in the entry data as a string with one or two values separated by a dash.
         // We use 'split' to store them in an array getting rid of the dash.
         var range = price.split("-");
 
@@ -42,7 +43,7 @@ router.get('/', async (req, res, next) => {
             filter.price = {"$gte" : range[0]};
 
         } else {
-            // If there´s a value only at the right of the dash -> only $lte
+            // There´s a value only at the right of the dash -> only $lte
             filter.price = {"$lte" : range[1]};
         }
     } 
