@@ -22,12 +22,17 @@ const Ad = require('../../models/Ad');
  */
 router.get('/', async (req, res, next) => {
     
-    // Get the filters on http req parameters
+    // Entry Data
     const tag = req.query.tag;
     const sale = req.query.venta;
     const price = req.query.precio;
     const name = req.query.nombre;
+    const sort = req.query.sort;
+    const limit = parseInt(req.query.limit);
+    const skip = parseInt(req.query.skip);
+    const start = parseInt(req.query.start);
     
+    // Query filters
     const filter = {};
 
     if (tag) filter.tags = tag;
@@ -57,6 +62,14 @@ router.get('/', async (req, res, next) => {
     }
 
     const query = Ad.find( filter );
+
+    // Query modifiers
+    if (limit) query.limit(limit);
+    if (skip) query.skip(skip);    
+    if (start) query.start(start); 
+    if (sort) query.sort(sort); 
+    // TODO comprobar que funcionan todos
+        
 
     try{
         // Exec the query aplying the filters founded
