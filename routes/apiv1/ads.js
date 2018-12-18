@@ -4,9 +4,13 @@ const express = require('express');
 const router = express.Router();
 
 const Ad = require('../../models/Ad');
+const basicAuthMiddleware = require('../../lib/basicAuthMiddleware');
+
+router.use( basicAuthMiddleware(process.env.BASIC_AUTH_NAME, process.env.BASIC_AUTH_PASS) );
 
 /**
- * Filtered by tags, sales, price range, and name begining
+ * GET /ads
+ * Filtered by tags, sales, price range, and name first letters
  */
 router.get('/', async (req, res, next) => {
     
@@ -67,33 +71,5 @@ router.get('/', async (req, res, next) => {
         return;
     }    
 });
-
-
-
-
-/**
- * Filtered by price range (min and max)
- */
-
-/**
- * Filtered by article name as parameter (using regexp)
- */
-
-
-
-/**
- * GET /adds
- * Get an unfiltered list of adds
- */
- router.get('/', (req, res, next) => {
-    Ad.find().exec((err, list) => {
-        if(err) {
-            next(err);
-            return;
-        }
-        
-        res.json({ success: true, results: list});
-    });    
- });
 
  module.exports = router;
