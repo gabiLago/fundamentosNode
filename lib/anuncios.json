@@ -1,15 +1,15 @@
 {
     "anuncios": [
         {
-            "name": "iPhone 3Gs",
+            "name": "Bicileta",
             "sale": false,
             "price": 50.00,
             "img": "images/ads/iphone3.jpg",
-            "tags": ["lifestyle", "mobile"]
+            "tags": ["lifestyle", "motor"]
         },
         {
             "name": "iPhone 6",
-            "sale": false,
+            "sale": true,
             "price": 350.00,
             "img": "images/ads/iphone5.jpg",
             "tags": ["lifestyle", "mobile"]
