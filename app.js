@@ -13,7 +13,7 @@ app.engine('html', require('ejs').__express);
 
 // Connection to DB and Models Definitions
 require('./lib/connectMongoose');
-require('./models/Add');
+require('./models/Ad');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * API Routes
  */
-app.use('/apiv1/adds', require('./routes/apiv1/adds.js'));
+app.use('/apiv1/ads', require('./routes/apiv1/ads.js'));
 
 /**
  * web Routes
