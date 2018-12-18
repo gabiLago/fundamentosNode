@@ -1,0 +1,26 @@
+{
+    "anuncios": [
+        {
+            "name": "iPhone 3Gs",
+            "sale": false,
+            "price": 50.00,
+            "img": "images/ads/iphone3.jpg",
+            "tags": ["lifestyle", "mobile"]
+        },
+        {
+            "name": "iPhone 6",
+            "sale": false,
+            "price": 350.00,
+            "img": "images/ads/iphone5.jpg",
+            "tags": ["lifestyle", "mobile"]
+        },
+        {
+            "name": "Samsung Galaxy",
+            "sale": false,
+            "price": 270.00,
+            "img": "images/ads/samsung.jpg",
+            "tags": ["lifestyle", "mobile"]
+        }
+    ]
+}
+
