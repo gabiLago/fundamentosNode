@@ -5,20 +5,8 @@ const router = express.Router();
 
 const Ad = require('../../models/Ad');
 
-
-// Filters
 /**
- * GET /agentes/:id
- * Obtener un agente buscando por id usando una promesa
- * Metido en un try catch para poder recoger posibles errores
- *
- */ 
-
-
-
-
-/**
- * Filtered by tags, sales
+ * Filtered by tags, sales, price range, and name begining
  */
 router.get('/', async (req, res, next) => {
     
@@ -29,7 +17,6 @@ router.get('/', async (req, res, next) => {
     const name = req.query.nombre;
     const sort = req.query.sort;
     const limit = parseInt(req.query.limit);
-    const skip = parseInt(req.query.skip);
     const start = parseInt(req.query.start);
     
     // Query filters
@@ -65,7 +52,6 @@ router.get('/', async (req, res, next) => {
 
     // Query modifiers
     if (limit) query.limit(limit);
-    if (skip) query.skip(skip);    
     if (start) query.start(start); 
     if (sort) query.sort(sort); 
     // TODO comprobar que funcionan todos
