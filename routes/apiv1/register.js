@@ -23,14 +23,14 @@ router.post('/', async (req, res, next) => {
      * User data stored on DB
      * Password hashed through bcrypt
      */
-    bcrypt.hash(email, saltRounds, function(err, hash) {
+    bcrypt.hash(passwd, saltRounds, function(err, hash) {
         if (err) throw err;
         
         try {
           const newUser = new User({
               name: name,
-              email: hash, // hashed email
-              passwd: passwd
+              email: email, 
+              passwd: hash // hashed email
           });
 
           newUser.save(function (err, userCreated) {
@@ -47,7 +47,6 @@ router.post('/', async (req, res, next) => {
     });
 });
   
-
 module.exports = router;
 
 
