@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../../models/User');
 
+//TODO module.exports = router está dos veces ¿Está bien?
+
 /** 
  * POST /users/login
  * Autentica un usuario
