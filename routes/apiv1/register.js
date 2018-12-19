@@ -5,9 +5,12 @@ const router = express.Router();
 
 const User = require('../../models/User');
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 /** 
- * POST /users/login
- * Autentica un usuario
+ * POST /users/signup
+ * Registers a new User coming from POST data
  */
 router.post('/', async (req, res, next) => {
 
@@ -16,25 +19,34 @@ router.post('/', async (req, res, next) => {
     const email = req.body.email;
     const passwd = req.body.passwd;
 
-  try {
-    
-    const newUser = new User({
-      name: name,
-      email: email,
-      passwd: passwd
-    });
+    /**
+     * User data stored on DB
+     * Password hashed through bcrypt
+     */
+    bcrypt.hash(email, saltRounds, function(err, hash) {
+        if (err) throw err;
+        
+        try {
+          const newUser = new User({
+              name: name,
+              email: hash, // hashed email
+              passwd: passwd
+          });
 
-    newUser.save(function (err, userCreated) {
-      if (err) throw err;
-      console.log('New User ' + userCreated.name + ' created');
-      res.json({success: true, result: userCreated.name})
-    });
+          newUser.save(function (err, userCreated) {
+            if (err) throw err;
 
-  } catch(err) {
-    next(err);
-    return;
-  }
+            console.log('New User ' + userCreated.name + ' created');
+            res.json({success: true, result: userCreated.name})
+          });
+
+        } catch(err) {
+          next(err);
+          return;
+        }
+    });
 });
+  
 
 module.exports = router;
 
