@@ -25,9 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * API Routes
  */
-app.use('/apiv1/ads', require('./routes/apiv1/ads.js'));
-app.use('/apiv1/users', require('./routes/apiv1/users.js'));
-app.use('/apiv1/users/signup', require('./routes/apiv1/register.js'));
+app.use('/apiv1/ads', require('./routes/apiv1/ads.js')); // Ads lists
+app.use('/apiv1/users', require('./routes/apiv1/users.js')); // Users signin
+app.use('/apiv1/users/signup', require('./routes/apiv1/register.js')); // Users signup
+app.use('/apiv1/tags', require('./routes/apiv1/tags.js')); // Tags List
 
 /**
  * web Routes

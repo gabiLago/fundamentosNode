@@ -10,6 +10,7 @@ const adSchema = mongoose.Schema({
     tags: { type: [String], index: true }
 });
 
+
 const Ad = mongoose.model('Ad', adSchema);
 
 module.exports = Ad;
