@@ -1,0 +1,7 @@
+{
+	"Hello World": "Hola Mundo",
+	"Hello": "Hola",
+	"Invalid credentials": "Las credenciales no son válidas",
+	"No token provided": "No se ha facilitado un token",
+	"Invalid Token": "El Token no es válido"
+}
