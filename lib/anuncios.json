@@ -1,66 +1,66 @@
 {
     "anuncios": [
         {
-            "name": "Bicicleta",
-            "sale": true,
-            "price": 230.15,
-            "img": "images/anuncios/bici.jpg",
+            "nombre": "Bicicleta",
+            "venta": true,
+            "precio": 230.15,
+            "foto": "images/anuncios/bicicleta.jpg",
             "tags": ["lifestyle", "motor"]
         },
         {
-            "name": "iPhone 3Gs",
-            "sale": false,
-            "price": 50.00,
-            "img": "images/anuncios/iphone3.jpg",
+            "nombre": "iPhone 3Gs",
+            "venta": true,
+            "precio": 50.00,
+            "foto": "images/anuncios/iphone3gs.jpg",
             "tags": ["lifestyle", "mobile"]
         },
         {
-            "name": "Gramófono",
-            "sale": false,
-            "price": 150.00,
-            "img": "images/anuncios/gromofono.jpg",
+            "nombre": "Gramófono",
+            "venta": false,
+            "precio": 150.00,
+            "foto": "images/anuncios/gromofono.jpg",
             "tags": ["lifestyle"]
         },
         {
-            "name": "Patinete eléctrico",
-            "sale": false,
-            "price": 235.00,
-            "img": "images/anuncios/patinete.jpg",
+            "nombre": "Patinete eléctrico",
+            "venta": false,
+            "precio": 235.00,
+            "foto": "images/anuncios/patinete.jpg",
             "tags": ["lifestyle", "motor"]
         },
         {
-            "name": "Taladro",
-            "sale": false,
-            "price": 23.10,
-            "img": "images/anuncios/iphone3.jpg",
+            "nombre": "Taladro",
+            "venta": true,
+            "precio": 85.10,
+            "foto": "images/anuncios/taladro.jpg",
             "tags": ["lifestyle", "work"]
         },
         {
-            "name": "Playstation 4",
-            "sale": false,
-            "price": 250.00,
-            "img": "images/anuncios/iphone3.jpg",
+            "nombre": "Playstation 4",
+            "venta": false,
+            "precio": 150.00,
+            "foto": "images/anuncios/ps4.jpg",
             "tags": ["lifestyle"]
         },
         {
-            "name": "Vespa",
-            "sale": false,
-            "price": 450.00,
-            "img": "images/anuncios/zip.jpg",
+            "nombre": "Vespa",
+            "venta": true,
+            "precio": 450.00,
+            "foto": "images/anuncios/vespa.jpg",
             "tags": ["motor"]
         },
         {
-            "name": "Libro Javascript",
-            "sale": false,
-            "price": 9.00,
-            "img": "images/anuncios/jsbook.jpg",
+            "nombre": "Libro Javascript",
+            "venta": false,
+            "precio": 9.00,
+            "foto": "images/anuncios/jsbook.png",
             "tags": ["work"]
         },
         {
-            "name": "Samsung Galaxy",
-            "sale": false,
-            "price": 270.00,
-            "img": "images/anuncios/samsung.jpg",
+            "nombre": "Samsung Galaxy",
+            "venta": false,
+            "precio": 270.00,
+            "foto": "images/anuncios/samsung.jpg",
             "tags": ["lifestyle", "mobile"]
         }
     ]

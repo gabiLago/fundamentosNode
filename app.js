@@ -15,7 +15,7 @@ app.engine('html', require('ejs').__express);
 
 // Connection to DB and Models Definitions
 require('./lib/connectMongoose');
-require('./models/Ad');
+require('./models/Anuncio');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -26,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * API Routes
  */
-app.use('/apiv1/ads', require('./routes/apiv1/ads.js')); // Ads lists
-app.use('/apiv1/users', require('./routes/apiv1/users.js')); // Users signin
-app.use('/apiv1/users/signup', require('./routes/apiv1/register.js')); // Users signup
+app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios.js')); // Ads lists
+app.use('/apiv1/usuarios/login', require('./routes/apiv1/usuariosAuthentication.js')); // Users signin
+app.use('/apiv1/usuarios/registro', require('./routes/apiv1/usuariosRegistro.js')); // Users signup
 app.use('/apiv1/tags', require('./routes/apiv1/tags.js')); // Tags List
 
 /**

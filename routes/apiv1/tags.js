@@ -8,7 +8,7 @@ const i18n = require("i18n");
 const jwtAuthMiddleware = require('../../lib/jwtAuthMiddleware');
 router.use( jwtAuthMiddleware());
 
-const Ad = require('../../models/Ad');
+const Ad = require('../../models/Anuncio');
 
 /**
  * GET /tags
