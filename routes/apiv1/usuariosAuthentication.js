@@ -26,7 +26,7 @@ router.post('/', async (req, res, next) => {
 
     // Check if user exists on DB  
     if (!usuario) {
-      res.json({ success: false, error: res.__('Invalid credentials')});
+      res.status(401).json({ success: false, error: res.__('Invalid credentials')});
       return;
     }
 
@@ -34,7 +34,7 @@ router.post('/', async (req, res, next) => {
     const match = await bcrypt.compare(passwd, usuario.passwd);
 
     if (!match) {
-      res.json({ success: false, error: res.__('Invalid credentials')});
+      res.status(401).json({ success: false, error: res.__('Invalid credentials')});
       return;
     }
 

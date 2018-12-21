@@ -4,9 +4,9 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../../models/Usuario');
-
+const dotenv = require('dotenv').config()
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
+
 
 /** 
  * POST /users/signup
@@ -23,7 +23,7 @@ router.post('/', async (req, res, next) => {
      * User data stored on DB
      * Password hashed through bcrypt
      */
-    bcrypt.hash(passwd, saltRounds, function(err, hash) {
+    bcrypt.hash(passwd, parseInt( process.env.BCRYPT_SALT_ROUNDS ), function(err, hash) {
         if (err) throw err;
         
         try {
