@@ -42,20 +42,24 @@ It adds some sample data to the Ads database collection and a test user to de Us
 
 
 * ### Configuration file
-A file that provides son environment variables is needed.
-A .env.example file is provided. Just duplicated it and renamed as .env 
+A file containing environment variables is needed.
+A .env.example file is provided. 
+Just duplicated it and renamed as .env 
 ```shell
 cp .env.example .env
 ``` 
 
 Change the values for the Authentication Token Module: 
 
-**JWT_SECRET** = A String of characters that allows jsonwebtoken to generate the Token
-**JWT_EXPIRATION** = 2d
+**JWT_SECRET**: A String of characters that allows jsonwebtoken to generate the Token
+
+**JWT_EXPIRATION**: 2d
 
 and for the test user that will be created in the installation process
 **TEST_NAME** = name
+
 **TEST_EMAIL** = email
+
 **TEST_PASSWD** =  password
 
 
