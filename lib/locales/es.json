@@ -9,5 +9,6 @@
 	"Path `email` is required.": "El campo email es obligaotorio.",
 	"No email provided": "No se ha enviado un email",
 	"No password provided": "No se ha enviado un password",
-	"Please fill a valid email address": "Por favor introduce un email válido"
+	"Please fill a valid email address": "Por favor introduce un email válido",
+	"Incorrect format for parameter precio": "Parámetro incorrecto para precio"
 }

@@ -22,7 +22,7 @@ const UsuarioSchema = mongoose.Schema({
         required: true,
         validate: [validateEmail, 'Please fill a valid email address'],
         match:  [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please fill a valid email address']
-        //https://emailregex.com/
+        // Regex from https://emailregex.com/ that asures that validates 99.99% of properly formed emails.
     },
     password: { 
         type: String, 

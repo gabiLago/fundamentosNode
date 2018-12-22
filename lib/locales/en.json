@@ -9,5 +9,6 @@
 	"Path `email` is required.": "Email field is required.",
 	"No password provided": "No password provided",
 	"No email provided": "No email provided",
-	"Please fill a valid email address": "Please fill a valid email address"
+	"Please fill a valid email address": "Please fill a valid email address",
+	"Incorrect format for parameter precio": "Incorrect format for parameter: precio"
 }
