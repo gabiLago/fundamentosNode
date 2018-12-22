@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const i18n = require('i18n');
+const i18nConfig = require('../../lib/i18nConfig');
 
 const Usuario = require('../../models/Usuario');
 

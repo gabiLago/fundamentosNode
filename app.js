@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios.js')); // Ads lists
 app.use('/apiv1/usuarios/login', require('./routes/apiv1/usuariosAuthentication.js')); // Users signin
 app.use('/apiv1/usuarios/registro', require('./routes/apiv1/usuariosRegistro.js')); // Users signup
-app.use('/apiv1/tags', require('./routes/apiv1/tags.js')); // Tags List
+app.use('/apiv1/anuncios/tags', require('./routes/apiv1/tags.js')); // Tags List
 
 /**
  * web Routes

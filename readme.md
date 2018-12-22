@@ -197,7 +197,7 @@ A list of ads will provided
 
     * **sort**: Sorts the query
     * **limit**: Limts the number of results
-    * **start**: Offsets the query resulta
+    * **skip**: Offsets the query results
 
  
    **Token Required:**
@@ -209,7 +209,7 @@ A list of ads will provided
     
    **Complete example**
     ```
-    http://[server_address]/apiv1/anuncios?tag=mobile&venta=false&nombre=Bicl&precio=50­-&start=0&limit=2&sort=precio&token =eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9[...]eGSHeQfg
+    http://[server_address]/apiv1/anuncios?tag=mobile&venta=false&nombre=Bicl&precio=50­-&skip=0&limit=2&sort=precio&token =eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9[...]eGSHeQfg
     ```    
    
 * **Success Response:**

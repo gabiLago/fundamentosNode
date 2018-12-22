@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const i18n = require('i18n');
-
+const i18nConfig = require('../../lib/i18nConfig');
 
 const User = require('../../models/Usuario');
 const dotenv = require('dotenv').config()
