@@ -5,8 +5,6 @@ const router = express.Router();
 
 const User = require('../../models/Usuario');
 const dotenv = require('dotenv').config()
-const bcrypt = require('bcrypt');
-
 
 /** 
  * POST /users/signup
@@ -17,34 +15,20 @@ router.post('/', async (req, res, next) => {
     // Entry data
     const nombre = req.body.nombre;
     const email = req.body.email;
-    const passwd = req.body.passwd;
+    const password = req.body.password;
 
-    /**
-     * User data stored on DB
-     * Password hashed through bcrypt
-     */
-    bcrypt.hash(passwd, parseInt( process.env.BCRYPT_SALT_ROUNDS ), function(err, hash) {
-        if (err) throw err;
-        
-        try {
-          const newUser = new User({
-              nombre: nombre,
-              email: email, 
-              passwd: hash // hashed email
-          });
-
-          newUser.save(function (err, userCreated) {
-            if (err) throw err;
-
-            console.log('New User ' + userCreated.nombre + ' created');
-            res.json({success: true, result: userCreated.nombre})
-          });
-
-        } catch(err) {
-          next(err);
-          return;
-        }
+    const newUser = new User({
+        nombre: nombre,
+        email: email, 
+        password: password // Password will be hashed before saved on db due a pre middleware function on models/Usuario
     });
+
+    newUser.save(function (err, userCreated) {
+        if (err) throw err;
+
+        console.log('New User ' + userCreated.nombre + ' created');
+        res.json({success: true, result: userCreated.nombre})
+    });      
 });
   
 module.exports = router;
