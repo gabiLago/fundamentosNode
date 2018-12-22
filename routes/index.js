@@ -4,8 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Nodepop' });
-    next();
+	res.render('index', { title: 'Nodepop' });
+	next();
 });
 
 module.exports = router;
