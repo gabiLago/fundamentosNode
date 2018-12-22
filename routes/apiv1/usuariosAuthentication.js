@@ -36,8 +36,8 @@ router.post('/', async (req, res, next) => {
     if (!match) {
       res.status(401).json({ success: false, error: res.__('Invalid credentials')});
       return;
-    }
-
+    } 
+    
     // Token creation
     jwt.sign({ user_id: usuario._id }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIRATION
