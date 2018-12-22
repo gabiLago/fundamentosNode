@@ -12,7 +12,7 @@ const Usuario = require('../../models/Usuario');
  * Authenticates a user via POST
  */
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
     i18n.init(req, res); // Initializes translation
 
     try {
@@ -20,8 +20,18 @@ router.post('/', (req, res, next) => {
         const email = req.body.email;
         const password = req.body.password;
 
+        if(!password){
+            res.status(422).json({ success: false, error: res.__('No password provided')}); 
+            return;
+        }
+
+        if(!email){
+            res.status(422).json({ success: false, error: res.__('No email provided')}); 
+            return;
+        }
+
         // DB query searching the user received matching email
-        Usuario.findOne({ email: email }, function(err, usuario) {
+        await Usuario.findOne({ email: email }, async function(err, usuario) {
             if (err) throw err;
 
             // Check if user exists on DB  
@@ -31,7 +41,7 @@ router.post('/', (req, res, next) => {
             }
 
             // test a matching password using method defined in the model
-            usuario.comparePassword(password, function(err, match) {
+            await usuario.comparePassword(password, async function(err, match) {
                 if (err) throw err;
 
                 if (!match){
@@ -40,7 +50,7 @@ router.post('/', (req, res, next) => {
                 }
 
                 // Token creation
-                jwt.sign({ user_id: usuario._id }, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRATION }, (err, token) => {
+               await jwt.sign({ user_id: usuario._id }, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRATION }, (err, token) => {
                     if (err) {
                         next(err);
                         return;

@@ -3,5 +3,11 @@
 	"Hello": "Hello",
 	"Invalid credentials": "Invalid credentials",
 	"No token provided": "No token provided",
-	"Invalid Token": "Invalid Token"
+	"Invalid Token": "Invalid Token",
+	"Path `nombre` is required.": "Name field is required",
+	"Path `password` is required.": "Password field is required.",
+	"Path `email` is required.": "Email field is required.",
+	"No password provided": "No password provided",
+	"No email provided": "No email provided",
+	"Please fill a valid email address": "Please fill a valid email address"
 }

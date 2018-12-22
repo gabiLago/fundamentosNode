@@ -4,6 +4,12 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
 
+
+let validateEmail = function(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email)
+};
+
 const UsuarioSchema = mongoose.Schema({
     nombre:   { 
         type: String, 
@@ -13,7 +19,10 @@ const UsuarioSchema = mongoose.Schema({
     email:  { 
         type: String, 
         index: true,
-        required: true
+        required: true,
+        validate: [validateEmail, 'Please fill a valid email address'],
+        match:  [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please fill a valid email address']
+        //https://emailregex.com/
     },
     password: { 
         type: String, 
@@ -22,22 +31,17 @@ const UsuarioSchema = mongoose.Schema({
 });
 
 
-// http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
+// We have followed http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt to use bcypt in a pre middleware function
 UsuarioSchema.pre('save', function(next) {
-    var user = this;
-
-    // only hash the password if it has been modified (or is new)
+    let user = this;
     if (!user.isModified('password')) return next();
-
     // generate a salt
     bcrypt.genSalt(parseInt(process.env.BCRYPT_SALT_ROUNDS), function(err, salt) {
         if (err) return next(err);
 
-        // hash the password using our new salt
         bcrypt.hash(user.password, salt, function(err, hash) {
             if (err) return next(err);
 
-            // override the cleartext password with the hashed one
             user.password = hash;
             next();
         });
@@ -50,6 +54,7 @@ UsuarioSchema.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
+
 
 const Usuario = mongoose.model('Usuario', UsuarioSchema);
 

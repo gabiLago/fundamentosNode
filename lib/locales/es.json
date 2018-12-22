@@ -3,5 +3,11 @@
 	"Hello": "Hola",
 	"Invalid credentials": "Las credenciales no son válidas",
 	"No token provided": "No se ha facilitado un token",
-	"Invalid Token": "El Token no es válido"
+	"Invalid Token": "El Token no es válido",
+	"Path `nombre` is required.": "El campo nombre es obligatorio.",
+	"Path `password` is required.": "El campo password es obligatorio.",
+	"Path `email` is required.": "El campo email es obligaotorio.",
+	"No email provided": "No se ha enviado un email",
+	"No password provided": "No se ha enviado un password",
+	"Please fill a valid email address": "Por favor introduce un email válido"
 }
