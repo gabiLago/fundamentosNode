@@ -8,6 +8,7 @@
     "installDB": "node ./lib/install_db.js",
     "cluster": "node ./bin/cluster"
   },
+  
   "dependencies": {
     "bcrypt": "^3.0.2",
     "cookie-parser": "~1.4.3",

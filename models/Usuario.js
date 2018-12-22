@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ *  Model Schema for Users
+ * It ads validation for required fields and email
+ */
+
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');

@@ -1,6 +1,5 @@
 {
-	"Hello World": "Hola Mundo",
-	"Hello": "Hola",
+
 	"Invalid credentials": "Las credenciales no son válidas",
 	"No token provided": "No se ha facilitado un token",
 	"Invalid Token": "El Token no es válido",
@@ -11,4 +10,5 @@
 	"No password provided": "No se ha enviado un password",
 	"Please fill a valid email address": "Por favor introduce un email válido",
 	"Incorrect format for parameter precio": "Parámetro incorrecto para precio"
+
 }

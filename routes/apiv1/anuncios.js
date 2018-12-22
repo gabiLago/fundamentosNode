@@ -7,7 +7,6 @@ const i18nConfig = require('../../lib/i18nConfig');
 
 const Ad = require('../../models/Anuncio');
 const jwtAuthMiddleware = require('../../lib/jwtAuthMiddleware');
-
 router.use(jwtAuthMiddleware());
 
 /**

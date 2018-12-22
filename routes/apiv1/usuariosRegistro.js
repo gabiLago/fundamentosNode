@@ -10,7 +10,7 @@ const dotenv = require('dotenv').config()
 
 /** 
  * POST /users/signup
- * Registers a new User coming from POST data
+ * Registers a new User
  */
 router.post('/', async (req, res, next) => {
   i18n.init(req, res); // Initializes translation

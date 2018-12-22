@@ -55,7 +55,8 @@ Change the values for the Authentication Token Module:
 
 **JWT_EXPIRATION**: 2d
 
-and for the test user that will be created in the installation process
+And for the test user that will be created in the installation process
+
 **TEST_NAME** = name
 
 **TEST_EMAIL** = email
@@ -67,7 +68,7 @@ and for the test user that will be created in the installation process
 
 There are three starting modes:
 
-**Standard:**
+**Production:**
 ```shell
 npm run start
 ``` 
@@ -107,7 +108,7 @@ The API provides a register method
 Values must be provided for the following keys:
 
 ```
-name
+nombre
 email
 password
 ```
@@ -117,6 +118,12 @@ password
     **Content:** `{    "success": true,    "result": "nameProvided"}`
  
 * **Error Response:**
+  * **Code:** 422 Unprocessable Entity
+  * **Error Messages**:  
+	
+    "Path `nombre` is required.": "Name field is required",
+	"Path `password` is required.": "Password field is required.",
+	"Path `email` is required.": "Email field is required.",
     
 
 #### Login
@@ -147,11 +154,16 @@ password
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ "success": false, "error": "Invalid credentials"}`
+  * **Error Messages**
 
+    * No password provided
+  
+    * No email provided
+    
 
 ### ADS
 A list of ads will provided
+
 * **URL**
 
   `http://[server_domain]/apiv1/anuncios`
@@ -237,23 +249,25 @@ A list of ads will provided
     ]
     } `
  
-* **Error Response:**
-
-  <_Most endpoints will have many ways they can fail. From unauthorized access, to wrongful parameters etc. All of those should be liste d here. It might seem repetitive, but it helps prevent assumptions from being made where they should be._>
+* **Error Responses:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
+  * **Error Messages**:
 
-  OR
+    * No token provided
+	* Invalid Token
 
-  * **Code:** 401 UNPROCESSABLE ENTRY <br />
-    **Content:** `{ Invalid Token }`
+  * **Code:** 422 Unprocessable Entity
+  * **Error Messages**:  
+	* "Please fill a valid email address": "Please fill a valid email address",
+	* "Incorrect format for parameter precio": "Incorrect format for parameter: precio"
+
 
 ### ADS
 A list of distinct tags on database
 **URL**
 
-  `http://[server_domain]/apiv1/tags`
+  `http://[server_domain]/apiv1/anuncios/tags`
 
 **Method**
 

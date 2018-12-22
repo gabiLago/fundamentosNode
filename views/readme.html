@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+<h1 id="nodepop">Nodepop</h1>
+<h2 id="synopsis">SYNOPSIS</h2>
+<p><strong>Nodepop</strong> is an API for a 2nd hand articles App developed in NodeJS + Express4 + Mongoose</p>
+<p>This is a Practice Exercise for <strong>KeepCoding Mobile Bootcamp 8</strong> - Node Fundamentals Module</p>
+<hr>
+<h2 id="requirements-and-dependencies">REQUIREMENTS AND DEPENDENCIES</h2>
+<p>The API has been built using NodeJS Express framework and MongoDB through Mongoose ODM.</p>
+<p>It needs NodeJS ^10.0.0 and MongoDB ^4.0.0 properly installed and running.</p>
+<p>Fork the project and the following dependencies will be installed after running: </p>
+<pre><code class="lang-shell">npm install
+</code></pre>
+<ul>
+<li><strong>express</strong>: ~4.16.0</li>
+<li><strong>mongoose</strong>: ^5.3.16</li>
+<li><strong>bcrypt</strong>: ^3.0.2</li>
+<li><strong>cookie-parser</strong>: ~1.4.3</li>
+<li><strong>cross-env</strong>: ^5.2.0</li>
+<li><strong>debug</strong>: ~2.6.9</li>
+<li><strong>dotenv</strong>: ^6.2.0</li>
+<li><strong>ejs</strong>: ~2.5.7</li>
+<li><strong>http-errors</strong>: ~1.6.2</li>
+<li><strong>i18n</strong>: ^0.8.3</li>
+<li><strong>jsonwebtoken</strong>: ^8.4.0</li>
+<li><strong>morgan</strong>: &quot;~1.9.0&quot;</li>
+</ul>
+<hr>
+<h2 id="installing">INSTALLING</h2>
+<p>There are two steps needed before running the app:</p>
+<ul>
+<li><h3 id="database-intializing-script">Database intializing script</h3>
+<pre><code class="lang-shell">npm run installDB
+</code></pre>
+It adds some sample data to the Ads database collection and a test user to de User collection.</li>
+</ul>
+<ul>
+<li><h3 id="configuration-file">Configuration file</h3>
+A file containing environment variables is needed.<br>A .env.example file is provided.<br>Just duplicated it and renamed as .env <pre><code class="lang-shell">cp .env.example .env
+</code></pre>
+</li>
+</ul>
+<p>Change the values for the Authentication Token Module: </p>
+<p><strong>JWT_SECRET</strong>: A String of characters that allows jsonwebtoken to generate the Token</p>
+<p><strong>JWT_EXPIRATION</strong>: 2d</p>
+<p>And for the test user that will be created in the installation process</p>
+<p><strong>TEST_NAME</strong> = name</p>
+<p><strong>TEST_EMAIL</strong> = email</p>
+<p><strong>TEST_PASSWD</strong> =  password</p>
+<h2 id="starting-the-api">Starting the API</h2>
+<p>There are three starting modes:</p>
+<p><strong>Production:</strong></p>
+<pre><code class="lang-shell">npm run start
+</code></pre>
+<p><strong>Dev</strong> DEBUG mode</p>
+<pre><code class="lang-shell">npm run dev
+</code></pre>
+<p><strong>Cluster</strong> For better performance in multiple connections. It starts the app using as many workers as threads the CPU allows.</p>
+<pre><code class="lang-shell">npm run cluster
+</code></pre>
+<hr>
+<h2 id="api-use">API USE</h2>
+<p>  The API will send a response with a JSON object for prorperly formatted requests.</p>
+<h3 id="users">USERS</h3>
+<p>Only authenticated users requests will be responded by the API.</p>
+<p>A valid token, needed for any <code>GET</code> request, will be provided as a response after a successful login.<br><em>Token expiring time is set by default as 2 days, you can change it in <code>.env</code> file</em></p>
+<h4 id="register">Register</h4>
+<p>The API provides a register method </p>
+<p><strong>URL</strong></p>
+<p>  <code>http://[server_domain]/apiv1/usuarios/registro</code></p>
+<p><strong>Method</strong></p>
+<p>| <code>POST</code> | application/x-www-form-urlencoded</p>
+<p>Values must be provided for the following keys:</p>
+<pre><code>nombre
+email
+password
+</code></pre><ul>
+<li><p><strong>Success Response:</strong></p>
+<ul>
+<li><strong>Code:</strong> 200 &lt;br /&gt;<br><strong>Content:</strong> <code>{    &quot;success&quot;: true,    &quot;result&quot;: &quot;nameProvided&quot;}</code></li>
+</ul>
+</li>
+<li><p><strong>Error Response:</strong></p>
+<ul>
+<li><strong>Code:</strong> 422 Unprocessable Entity</li>
+<li><p><strong>Error Messages</strong>:  </p>
+<p>&quot;Path <code>nombre</code> is required.&quot;: &quot;Name field is required&quot;,<br>&quot;Path <code>password</code> is required.&quot;: &quot;Password field is required.&quot;,<br>&quot;Path <code>email</code> is required.&quot;: &quot;Email field is required.&quot;,</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="login">Login</h4>
+<p><strong> Security </strong><br>Passwords are hashed before being stored into the database using bcrypt module. Security may be increased changing the BCRYPT_SALT_ROUNDS value on .env file, by default is 10.</p>
+<p><strong>URL</strong></p>
+<p>  <code>http://[server_domain]/apiv1/usuarios/login</code></p>
+<p><strong>Method</strong></p>
+<p>| <code>POST</code> | application/x-www-form-urlencoded</p>
+<p>Values must be provided for the following keys:</p>
+<pre><code>email
+password
+</code></pre><ul>
+<li><p><strong>Success Response:</strong></p>
+<ul>
+<li><strong>Code:</strong> 200 &lt;br /&gt;<br><strong>Content:</strong> <code>{&quot;success&quot;: true, &quot;result&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWMxYmQ4NzM1ZjVhMzYwOTlmYmIwMWY5IiwiaWF0IjoxNTQ1MzI5MDUwLCJleHAiOjE1NDU1MDE4NTB9.zwjwo3e1MLkX4y6q04N3KaBFXG9m9sbBYJZ-gFuobT8&quot;}</code></li>
+</ul>
+</li>
+<li><p><strong>Error Response:</strong></p>
+<ul>
+<li><strong>Code:</strong> 401 UNAUTHORIZED &lt;br /&gt;</li>
+<li><p><strong>Error Messages</strong></p>
+<ul>
+<li><p>No password provided</p>
+</li>
+<li><p>No email provided</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ads">ADS</h3>
+<p>A list of ads will provided</p>
+<ul>
+<li><p><strong>URL</strong></p>
+<p><code>http://[server_domain]/apiv1/anuncios</code></p>
+</li>
+<li><p><strong>Method:</strong></p>
+<p>| <code>GET</code> | </p>
+</li>
+<li><p><strong>URL Params</strong></p>
+<p> <strong>Query filters</strong></p>
+<ul>
+<li><p><strong>tag</strong>: Actual valid tags are: <em>mobile</em>, <em>lifestyle</em>, <em>work</em> and <em>motor</em> </p>
+<pre><code>  http://[server_address]/apiv1/anuncios?tag=mobile... 
+</code></pre></li>
+<li><p><strong>venta</strong>: = A boolean value, <em>true</em> means for sale <em>false</em> means offer</p>
+<pre><code>  http://[server_address]/apiv1/anuncios?venta=true... 
+</code></pre></li>
+<li><p><strong>precio</strong>: = Numeric value. Price can be expressed as <em>lower than</em>, a <em>range</em>, or <em>higher than</em>. </p>
+<ul>
+<li><p>Menor que 50:</p>
+<pre><code>http://[server_address]/apiv1/anuncios?precio=-50... 
+</code></pre></li>
+<li><p>Rango:</p>
+<pre><code>http://[server_address]/apiv1/anuncios?precio=10-50... 
+</code></pre></li>
+<li>Mayor que 50:<pre><code>http://[server_address]/apiv1/anuncios?precio=50-... 
+</code></pre></li>
+</ul>
+</li>
+<li><p><strong>nombre</strong>: = The starting letters of the name of the article;</p>
+<p>  Name starts with: <em>Bicl</em></p>
+<pre><code>  http://[server_address]/apiv1/anuncios?nombre=Bicl... 
+</code></pre><p><strong>Query modifies</strong></p>
+</li>
+<li><p><strong>sort</strong>: Sorts the query</p>
+</li>
+<li><strong>limit</strong>: Limts the number of results</li>
+<li><strong>skip</strong>: Offsets the query results</li>
+</ul>
+</li>
+</ul>
+<p>   <strong>Token Required:</strong></p>
+<p>   A valid <code>jwttoken</code> param is mandatory to get a successful response.</p>
+<pre><code>```
+http://[server_address]/apiv1/anuncios?jwttoken=KV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1... 
+```    
+</code></pre><p>   <strong>Complete example</strong></p>
+<pre><code>```
+http://[server_address]/apiv1/anuncios?tag=mobile&amp;venta=false&amp;nombre=Bicl&amp;precio=50­-&amp;skip=0&amp;limit=2&amp;sort=precio&amp;token =eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9[...]eGSHeQfg
+```    
+</code></pre><ul>
+<li><p><strong>Success Response:</strong></p>
+<ul>
+<li><strong>Code:</strong> 200 &lt;br /&gt;<br><strong>Content:</strong> `{ {<br>&quot;success&quot;: true,<br>&quot;result&quot;: [<pre><code>{
+    &quot;tags&quot;: [
+        &quot;lifestyle&quot;,
+        &quot;motor&quot;
+    ],
+    &quot;_id&quot;: &quot;5c1bd769ce767b0978495a8a&quot;,
+    &quot;nombre&quot;: &quot;Patinete eléctrico&quot;,
+    &quot;venta&quot;: false,
+    &quot;precio&quot;: 235,
+    &quot;foto&quot;: &quot;images/anuncios/patinete.jpg&quot;,
+    &quot;__v&quot;: 0
+}
+</code></pre>]<br>} `</li>
+</ul>
+</li>
+<li><p><strong>Error Responses:</strong></p>
+<ul>
+<li><strong>Code:</strong> 401 UNAUTHORIZED &lt;br /&gt;</li>
+<li><p><strong>Error Messages</strong>:</p>
+<ul>
+<li>&quot;No token provided&quot;</li>
+<li>&quot;Invalid Token&quot;</li>
+</ul>
+</li>
+<li><p><strong>Code:</strong> 422 Unprocessable Entity</p>
+</li>
+<li><strong>Error Messages</strong>:  <ul>
+<li>&quot;Please fill a valid email address&quot;: &quot;Please fill a valid email address&quot;,</li>
+<li>&quot;Incorrect format for parameter precio&quot;: &quot;Incorrect format for parameter: precio&quot;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ads">ADS</h3>
+<p>A list of distinct tags on database<br><strong>URL</strong></p>
+<p>  <code>http://[server_domain]/apiv1/anuncios/tags</code></p>
+<p><strong>Method</strong></p>
+<p>| <code>TAGS</code> |</p>
+<pre><code>{
+    &quot;success&quot;: true,
+    &quot;result&quot;: [
+        &quot;lifestyle&quot;,
+        &quot;mobile&quot;,
+        &quot;motor&quot;,
+        &quot;work&quot;
+    ]
+}
+`
+</code></pre><h2 id="translations">TRANSLATIONS</h2>
+<p>The API has an i18n module for internationalization.<br>It has translated error messages to english an spanish</p>
+<p>The language is detected by the header <em>Accept-Language</em> key </p>
+<pre><code>en: english
+es: spanish
+</code>
+</pre>
+</body>
+</html>

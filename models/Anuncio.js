@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * Model Schema for ads
+ */
+
 const mongoose = require('mongoose');
 
 const anuncioSchema = mongoose.Schema({
