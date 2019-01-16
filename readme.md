@@ -38,7 +38,7 @@ There are two steps needed before running the app:
 ```shell
 npm run installDB
 ``` 
-It adds some sample data to the Ads database collection and a test user to de User collection.
+It adds some sample data to the Ads database collection and a test user to the User collection.
 
 
 * ### Configuration file
