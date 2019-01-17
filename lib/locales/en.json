@@ -1,5 +1,4 @@
 {
-
 	"Invalid credentials": "Invalid credentials",
 	"No token provided": "No token provided",
 	"Invalid Token": "Invalid Token",
@@ -9,6 +8,7 @@
 	"No password provided": "No password provided",
 	"No email provided": "No email provided",
 	"Please fill a valid email address": "Please fill a valid email address",
-	"Incorrect format for parameter precio": "Incorrect format for parameter: precio"
-
+	"Incorrect format for parameter precio": "Incorrect format for parameter: precio",
+	"Internal error undefined": "Internal error undefined",
+	"Internal error": "Internal error"
 }

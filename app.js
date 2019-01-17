@@ -25,10 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * API Routes
  */
-app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios.js')); // Ads lists
-app.use('/apiv1/usuarios/login', require('./routes/apiv1/usuariosAuthentication.js')); // Users signin
-app.use('/apiv1/usuarios/registro', require('./routes/apiv1/usuariosRegistro.js')); // Users signup
-app.use('/apiv1/anuncios/tags', require('./routes/apiv1/tags.js')); // Tags List
+app.use('/api/anuncios', require('./routes/api/anuncios.js')); // Ads lists
+app.use('/api/usuarios/login', require('./routes/api/usuariosAuthentication.js')); // Users signin
+app.use('/api/usuarios/registro', require('./routes/api/usuariosRegistro.js')); // Users signup
+app.use('/api/anuncios/tags', require('./routes/api/tags.js')); // Tags List
 
 /**
  * web Routes

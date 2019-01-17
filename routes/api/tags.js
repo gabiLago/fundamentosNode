@@ -16,11 +16,16 @@ const Ad = require('../../models/Anuncio');
 
 
 router.get('/', async (req, res, next) => {
-    
-    Ad.find().distinct('tags', function(err, ids) {
-        if (err) throw err;
-        res.json({ success: true, result: ids});
-    });
+    try{
+        Ad.find().distinct('tags', function(err, ids) {
+            if (err) throw err;
+            res.json({ success: true, result: ids});
+        });
+    } catch(err){
+        console.log(err);
+	    res.json({ success: false, result: res.__('Internal error')});        
+        return;
+    }    
 });
 
 module.exports = router;
