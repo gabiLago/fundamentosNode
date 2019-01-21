@@ -14,7 +14,6 @@ const Ad = require('../../models/Anuncio');
  * List of the distinct tags on DB
  */
 
-
 router.get('/', async (req, res, next) => {
     try{
             await Ad.find().distinct('tags', function(err, ids) {

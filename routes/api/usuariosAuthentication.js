@@ -12,6 +12,7 @@ const Usuario = require('../../models/Usuario');
  * POST /usuarios/login
  * Authenticates a user via POST
  */
+
  router.post('/', async (req, res, next) => {
 	i18n.init(req, res); // Initializes translation
 

@@ -13,6 +13,7 @@ router.use(jwtAuthMiddleware());
  * GET /ads
  * Filtered by tags, sales, price range, and name first letters
  */
+
 router.get('/', async (req, res, next) => {
 	i18n.init(req, res); // Initializes translation
 
