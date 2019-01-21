@@ -17,7 +17,7 @@ const Ad = require('../../models/Anuncio');
 
 router.get('/', async (req, res, next) => {
     try{
-        Ad.find().distinct('tags', function(err, ids) {
+            await Ad.find().distinct('tags', function(err, ids) {
             if (err) throw err;
             res.json({ success: true, result: ids});
         });
