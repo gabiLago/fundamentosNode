@@ -28,14 +28,17 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Nodepop</span>
+      
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="images/goku.gif" alt="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="images/goku.gif" alt="I´m a static file served by Ngnix" title="I´m a static file served by Ngnix">
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#quick">Quick Start</a>
@@ -66,11 +69,14 @@
           <h1 class="mb-0">This is not a
             <span class="text-primary">Website</span>
           </h1>
-          <div class="subheading mb-5">it´s a rest node API
+          <div class="subheading mb-5">(It´s a rest node API)
           </div>
-          <p class="lead mb-5"><strong>Nodepop</strong> is an API for a 2nd hand articles App developed in NodeJS + Express4 + Mongoose
-          <br />This is a Practice Exercise for <strong>KeepCoding Mobile Bootcamp 8</strong> - Node Fundamentals Module</p>
-          
+          <p class="lead mb-5"><strong>Welcome to NODEPOP</strong>, an API for a 2nd hand articles App developed in NodeJS + Express4 + Mongoose
+          <br /><br />This is a Practice Exercice for <strong>KeepCoding Mobile Bootcamp 8</strong> - Node Fundamentals Module<br /><br />
+          This deployment on the <a href="https://devops.lagoblasco.es" target="_blank">server</a> ponting to <a href="http://34.242.61.147" target="_blank">34.242.61.147</a> is another Practice exercice from <strong>KeepCoding Mobile Bootcamp 8</strong>, <strong>DevOps Node Module</strong>. It´s an AWS EC2 t2.micro server running Ngnix as a reverse proxy of the express app running under node using Mongooose for mongoDB and managed by PM2. Nginx also serves the static files instead of the express app, you can confirm it on its headers. It has been configured as a secure server aswell.
+           <br /><br />You can start using this demo of <strong>Nodepop API</strong> following <a href="#quick">this instructions</a>.</p> 
+        
+        </p>          
         </div>
       </section>
 
@@ -79,9 +85,9 @@
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
         
         <h2><a id="quick"></a>Quick Start</h2> 
-        <p>This demo has already loaded some sample data on its database.</p>
+        <p>This demo has already loaded some dummy data on its database.</p>
 
-        <p>You´ll need to do some POST andGET requests to the app. A tool like Postman or Insomnia could be helpeful.</p>
+        <p>You´ll need to do some POST and GET requests to the app. A tool like Postman or Insomnia could be helpful.</p>
         <p>In addition to the POST or GET values of the request, you´ll need to set a header for Content-Type with the value 'application/x-www-form-urlencoded'.</p>
         <p>You can also change the language for error reporting with the header Accept-Language. Values accepted are 'es' for spanish an 'en' for english.</p>
         <hr class="m-0"><br />

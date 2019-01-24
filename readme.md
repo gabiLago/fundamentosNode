@@ -1,22 +1,20 @@
 # Nodepop
 
+## GETTING STARTED (DevOps Practice)
+
+For the **DevOps Node Module** practice purposes, this app has a demo online version.
+
+**NODEPOP URL https://nodepop.lagoblasco.es**
+
+Further instructions are provided on its homepage.
+
+----
+
+
 ## SYNOPSIS
 **Nodepop** is an API for a 2nd hand articles App developed in NodeJS + Express4 + Mongoose
 
 This is a Practice Exercise for **KeepCoding Mobile Bootcamp 8** - Node Fundamentals Module
-
-----
-
-## GETTING STARTED
-
-For the **DevOps on Node Module** practice purposes, this app has a demo online version.
-
-It´s on a AWS EC2 micro server running Ngnix as a reverse proxy of the express app running under node and managed by PM2.
-Nginx also serves the satic files instead of the express app, you can confirm it on its headers.
-
-**NODEPOP URL http://nodepop.lagoblasco.es**
-
-Instructions on how to use it are provided on its homepage.
 
 ----
 
