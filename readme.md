@@ -7,6 +7,29 @@ This is a Practice Exercise for **KeepCoding Mobile Bootcamp 8** - Node Fundamen
 
 ----
 
+## GETTING STARTED
+
+For the **DevOps on Node Module** practice purposes, this app has a demo online version.
+
+It´s on a AWS EC2 micro server running Ngnix as a reverse proxy of the express app running under node and managed by PM2.
+Nginx also serves the satic files instead of the express app, you can confirm it on its headers.
+
+**NODEPOP URL http://nodepop.lagoblasco.es**
+
+Instructions on how to use it are provided on its homepage.
+
+----
+
+## VERSIONS
+
+This the 2nd version of the app (you can acess v1 on its branch in github)
+It includes some refactoring thanks to the advices given by Javier Miguel when he reviewed the practice.
+
+* The mongo connection chain is now an env variable you can define on your .env configuration file
+* Some middlewares that didn´t catch errors has been refactored with try/cathc
+* The sample instalation script has been refactored as a function that returns a promise.
+----
+
 ## REQUIREMENTS AND DEPENDENCIES
 The API has been built using NodeJS Express framework and MongoDB through Mongoose ODM.
 
@@ -263,8 +286,9 @@ A list of ads will provided
 	* "Incorrect format for parameter precio": "Incorrect format for parameter: precio"
 
 
-### ADS
+### TAGS
 A list of distinct tags on database
+
 **URL**
 
   `http://[server_domain]/apiv1/anuncios/tags`
@@ -285,7 +309,7 @@ A list of distinct tags on database
 ````
 
 
-## TRANSLATIONS
+### TRANSLATIONS
 
 The API has an i18n module for internationalization.
 It has translated error messages to english an spanish

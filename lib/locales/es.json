@@ -1,5 +1,4 @@
 {
-
 	"Invalid credentials": "Las credenciales no son válidas",
 	"No token provided": "No se ha facilitado un token",
 	"Invalid Token": "El Token no es válido",
@@ -9,6 +8,9 @@
 	"No email provided": "No se ha enviado un email",
 	"No password provided": "No se ha enviado un password",
 	"Please fill a valid email address": "Por favor introduce un email válido",
-	"Incorrect format for parameter precio": "Parámetro incorrecto para precio"
-
+	"Incorrect format for parameter precio": "Parámetro incorrecto para precio",
+	"Error, expected `email` to be unique": {
+		" Value": " `prueba@example.com`"
+	},
+	"Error, expected email to be unique.": "Error, se espera que el email sea único."
 }

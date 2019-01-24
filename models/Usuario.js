@@ -8,6 +8,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
+var uniqueValidator = require('mongoose-unique-validator');
 
 
 let validateEmail = function(email) {
@@ -24,6 +25,7 @@ const UsuarioSchema = mongoose.Schema({
 	email:  { 
 		type: String, 
 		index: true,
+		unique: true,
 		required: true,
 		validate: [validateEmail, 'Please fill a valid email address'],
 		match:  [/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please fill a valid email address']
@@ -34,6 +36,9 @@ const UsuarioSchema = mongoose.Schema({
 		required: true
 	} 
 });
+
+UsuarioSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
+
 
 
 // We have followed http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt to use bcypt in a pre middleware function
@@ -52,6 +57,9 @@ UsuarioSchema.pre('save', function(next) {
 		});
 	});
 });
+
+
+
 
 UsuarioSchema.methods.comparePassword = function(candidatePassword, cb) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {

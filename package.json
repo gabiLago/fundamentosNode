@@ -8,8 +8,6 @@
     "installDB": "node ./lib/install_db.js",
     "cluster": "node ./bin/cluster"
   },
-
-  
   "dependencies": {
     "bcrypt": "^3.0.2",
     "cookie-parser": "~1.4.3",
@@ -22,6 +20,7 @@
     "i18n": "^0.8.3",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.16",
+    "mongoose-unique-validator": "^2.0.2",
     "morgan": "~1.9.0"
   }
 }
